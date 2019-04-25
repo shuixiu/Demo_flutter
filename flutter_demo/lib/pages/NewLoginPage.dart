@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/api/Api.dart';
 import 'package:flutter_demo/model/AuthMsmData.dart';
 import 'package:flutter_demo/model/LoginData.dart';
+import 'package:flutter_demo/pages/HomePage.dart';
 import 'package:flutter_demo/util/RequestModle.dart';
+import 'package:flutter_demo/util/ThemeUtils.dart';
 import 'package:flutter_demo/util/ToastUtils.dart';
 import 'package:flutter_demo/util/local_storage.dart';
 import 'package:flutter_demo/view/LoginFormCode.dart';
@@ -52,6 +54,12 @@ class NewLoginPageState extends State<NewLoginPage> {
           height: 50,
           onPressed: () {
             if (isOnLogin) return;
+
+//            Navigator.of(context)
+//                .pushReplacement(new MaterialPageRoute(builder: (context) {
+//              return new HomePage();
+//            }));
+
             // 拿到用户输入的账号密码
             String username = usernameCtrl.text.trim();
             String password = passwordCtrl.text.trim();
@@ -76,80 +84,71 @@ class NewLoginPageState extends State<NewLoginPage> {
       );
     });
 
-//    var loadingView;
-//    if (isOnLogin) {
-//      loadingView = new Center(
-//          child: new Padding(
-//        padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
-//        child: new Column(
-//          crossAxisAlignment: CrossAxisAlignment.center,
-//          children: <Widget>[CupertinoActivityIndicator(), Text("登录中，请稍等...")],
-//        ),
-//      ));
-//    } else {
-//      loadingView = new Center();
-//    }
-    return new Scaffold(
-        appBar: new AppBar(
-          title: new Text("登录", style: new TextStyle(color: Colors.white)),
-          iconTheme: new IconThemeData(color: Colors.white),
-        ),
-        body: new SingleChildScrollView(
-            padding: const EdgeInsets.all(40.0),
-            child: new Column(children: <Widget>[
-              new Center(
-                  child: new Text(
-                "温馨提示：验证后可获得更多的服务",
-                style: new TextStyle(color: Colors.orange),
-              )),
-              new Container(height: 50.0),
-              new Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  new Image.asset('images/user_login_phone_icon.png',
-                      width: 20.0, height: 20.0),
-                  new Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
-                  ),
-                  new Expanded(
-                      child: new TextField(
-                    controller: usernameCtrl,
-                    decoration: new InputDecoration(
-                      hintText: "请输入手机号",
-                      hintStyle: new TextStyle(color: const Color(0xFF808080)),
-                      border: new OutlineInputBorder(
-                          borderRadius: const BorderRadius.all(
-                              const Radius.circular(2.0))),
-                      contentPadding: const EdgeInsets.all(10.0),
+    return new MaterialApp(
+      title: "",
+      theme: new ThemeData(primaryColor: ThemeUtils.currentColorTheme),
+      home: Scaffold(
+          appBar: new AppBar(
+            title: new Text("登录", style: new TextStyle(color: Colors.white)),
+            iconTheme: new IconThemeData(color: Colors.white),
+          ),
+          body: new SingleChildScrollView(
+              padding: const EdgeInsets.all(40.0),
+              child: new Column(children: <Widget>[
+                new Center(
+                    child: new Text(
+                  "温馨提示：验证后可获得更多的服务",
+                  style: new TextStyle(color: Colors.orange),
+                )),
+                new Container(height: 50.0),
+                new Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    new Image.asset('images/user_login_phone_icon.png',
+                        width: 20.0, height: 20.0),
+                    new Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
                     ),
-                  ))
-                ],
-              ),
-              new Container(height: 20.0),
-              new Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  new Image.asset('images/user_login_auth_icon.png',
-                      width: 20.0, height: 20.0),
-                  new Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
-                  ),
-                  new Expanded(
-                      child: new TextField(
-                    controller: passwordCtrl,
-                    decoration: new InputDecoration(
-                        hintText: "请输入验证码",
+                    new Expanded(
+                        child: new TextField(
+                      controller: usernameCtrl,
+                      decoration: new InputDecoration(
+                        hintText: "请输入手机号",
                         hintStyle:
                             new TextStyle(color: const Color(0xFF808080)),
                         border: new OutlineInputBorder(
                             borderRadius: const BorderRadius.all(
                                 const Radius.circular(2.0))),
-                        contentPadding: const EdgeInsets.all(10.0)),
-                  )),
-                  new Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
-                  ),
-                  authCode,
+                        contentPadding: const EdgeInsets.all(10.0),
+                      ),
+                    ))
+                  ],
+                ),
+                new Container(height: 20.0),
+                new Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    new Image.asset('images/user_login_auth_icon.png',
+                        width: 20.0, height: 20.0),
+                    new Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+                    ),
+                    new Expanded(
+                        child: new TextField(
+                      controller: passwordCtrl,
+                      decoration: new InputDecoration(
+                          hintText: "请输入验证码",
+                          hintStyle:
+                              new TextStyle(color: const Color(0xFF808080)),
+                          border: new OutlineInputBorder(
+                              borderRadius: const BorderRadius.all(
+                                  const Radius.circular(2.0))),
+                          contentPadding: const EdgeInsets.all(10.0)),
+                    )),
+                    new Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+                    ),
+                    authCode,
 //                  new OutlineButton(
 //                    borderSide:
 //                        new BorderSide(color: Theme.of(context).primaryColor),
@@ -168,11 +167,12 @@ class NewLoginPageState extends State<NewLoginPage> {
 //                      autoCode(username);
 //                    },
 //                  )
-                ],
-              ),
-              new Container(height: 20.0),
-              loginBtn,
-            ])));
+                  ],
+                ),
+                new Container(height: 20.0),
+                loginBtn,
+              ]))),
+    );
   }
 
   @override
@@ -181,7 +181,7 @@ class NewLoginPageState extends State<NewLoginPage> {
     super.dispose();
   }
 
-  void autoCode()  {
+  void autoCode() {
     Map param = {
       "client_type": 3,
       "phone": usernameCtrl.text.trim(),
@@ -215,14 +215,15 @@ class NewLoginPageState extends State<NewLoginPage> {
     RequestModle.getVerifyCode(json.encode(param)).then((res) {
       data = res;
       print("autoCode=" + res.toString());
-      if(data.return_code!= null && data.return_code=='00000'){
-        Toast.toast(context, data.return_msg);
+      if (data.return_code != null && data.return_code == '00000') {
+        Toast.toast(context, "验证码已发送，请注意查收！");
       }
     });
   }
 
-  void sendMsm(){
-    Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("验证码已发送")));
+  void sendMsm() {
+    Scaffold.of(context)
+        .showSnackBar(new SnackBar(content: new Text("验证码已发送")));
   }
 
   void autoLogin(String username, String password) async {
@@ -246,20 +247,31 @@ class NewLoginPageState extends State<NewLoginPage> {
     }
     print('Running on $sum');*/
 
+
+    var mParamuuid = uuid.v1();
+
     Map param = {
       "client_type": 3,
       "phone": usernameCtrl.text.trim(),
       "auth_code": passwordCtrl.text.trim(),
-      "openid": uuid.v1(),
+      "openid": mParamuuid,
       "version_id": 1,
       "model_name": androidDeviceInfo.model,
     };
     LoginData data;
     RequestModle.getLogin(param).then((res) {
       data = res;
-      if(data.return_code!= null && data.return_code=='00000'){
+      if (data.return_code != null && data.return_code == '00000') {
+        Toast.toast(context, "登录成功");
 
         LocalStorage.save("token", data.data.token);
+        LocalStorage.save("openid", mParamuuid);
+
+        Navigator.of(context)
+            .pushReplacement(new MaterialPageRoute(builder: (context) {
+          return new HomePage();
+        }));
+      } else {
         Toast.toast(context, data.return_msg);
       }
     });

@@ -5,12 +5,8 @@ import 'package:flutter_demo/events/LoginEvent.dart';
 import 'package:flutter_demo/events/LogoutEvent.dart';
 import 'package:flutter_demo/util/ThemeUtils.dart';
 import '../pages/CommonWebPage.dart';
-import '../pages/LoginPage.dart';
 import '../pages/NewLoginPage.dart';
-import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../api/Api.dart';
-import 'package:flutter_demo/util/NetUtils.dart';
 import '../util/DataUtils.dart';
 import '../model/UserInfo.dart';
 

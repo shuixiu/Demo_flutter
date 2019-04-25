@@ -31,8 +31,8 @@ class OfflineActivityPageState extends State<OfflineActivityPage> {
   }
 
   void getData(String type) {
-    String url = Api.EVENT_LIST;
-    url += "$type?pageIndex=$curPage&pageSize=5";
+//    String url = Api.EVENT_LIST;
+//    url += "$type?pageIndex=$curPage&pageSize=5";
 //    NetUtils.get(url).then((data) {
 //      if (data != null) {
 //        var obj = json.decode(data);

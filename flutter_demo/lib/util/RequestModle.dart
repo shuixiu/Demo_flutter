@@ -27,4 +27,16 @@ class RequestModle {
       return null;
     }
   }
+
+  static getAuthToken(Map param) async {
+    var res = await HttpRequest.post(Api.TOKENAUOTH, param);
+    if (res != null) {
+      LoginData loginData = LoginData.fromJson(json.decode(res.data));
+
+      return loginData;
+    } else {
+      return null;
+    }
+  }
+
 }

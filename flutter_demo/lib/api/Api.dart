@@ -1,15 +1,29 @@
+import 'package:flutter_demo/util/local_storage.dart';
+
 class Api {
   static String webHost = "https://tst.oil66.com/user/";
   static String webHostUpdate = "https://tst.oil66.com/supplier/";
 
-  static final String PUBLICPARAM = "&client_type=3";
+//  static final String CLINETYPE = "3"+"&openid="+LocalStorage.get("openid");
+//  static final String OPENID = LocalStorage.get("openid");
+//  static final String TOKEN = LocalStorage.get("token");
 
   //发送验证码
   static final String AUOTH=webHost + "ApiUser/send_auth";
-//  static final String AUOTH="https://www.baidu.com";
   //登录
   static final String LOGIN=  webHost + "ApiUser/user_register";
 
+  //token 校验
+  static final String TOKENAUOTH =  webHost + "ApiUser/update_app_login_token";
+
+  //banner 获取
+  static final String HOMEBANNER =  webHost + "ApiOther/get_banner_list";
+
+  //首页今日现货商品搜索条件列表接口
+  static final String HOMETYPEGOODS =  webHost + "ApiGood/get_today_goods_search_list";
+
+  //首页推荐列表
+  static final String HOMEGOODSLIST =  webHost + "ApiGood/get_today_goods_list";
 
 
 
@@ -21,48 +35,4 @@ class Api {
 
 
 
-
-
-
-
-
-
-
-
-
-
-  static final String HOST = "https://www.oschina.net";
-
-  // 资讯列表
-  static final String NEWS_LIST = "http://osc.yubo725.top/news/list";
-
-  // 资讯详情
-  static final String NEWS_DETAIL = HOST + "/action/openapi/news_detail";
-
-  // 动弹列表
-  static final String TWEETS_LIST = HOST + "/action/openapi/tweet_list";
-
-  // 评论列表
-  static final String COMMENT_LIST = HOST + "/action/openapi/comment_list";
-
-  // 评论回复
-  static final String COMMENT_REPLY = HOST + "/action/openapi/comment_reply";
-
-  // 获取用户信息
-  static final String USER_INFO = HOST + "/action/openapi/user";
-
-  // 发布动弹
-  static final String PUB_TWEET = HOST + "/action/openapi/tweet_pub";
-
-  // 添加到小黑屋
-  static final String ADD_TO_BLACK = "http://osc.yubo725.top/black/add";
-
-  // 查询小黑屋
-  static final String QUERY_BLACK = "http://osc.yubo725.top/black/query";
-
-  // 从小黑屋中删除
-  static final String DELETE_BLACK = "http://osc.yubo725.top/black/delete";
-
-  // 开源活动
-  static final String EVENT_LIST = "http://osc.yubo725.top/events/";
 }

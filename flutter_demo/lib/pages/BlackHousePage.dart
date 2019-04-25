@@ -2,12 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/constants/Constants.dart';
 import 'package:flutter_demo/events/LoginEvent.dart';
 import 'package:flutter_demo/pages/NewLoginPage.dart';
-import 'package:flutter_demo/util/BlackListUtils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_demo/util/NetUtils.dart';
-import '../api/Api.dart';
-import 'dart:convert';
-import '../pages/LoginPage.dart';
+
 import '../util/DataUtils.dart';
 import '../util/Utf8Utils.dart';
 
@@ -30,8 +26,8 @@ class BlackHousePageState extends State<BlackHousePage> {
   queryBlackList() {
     DataUtils.getUserInfo().then((userInfo) {
       if (userInfo != null) {
-        String url = Api.QUERY_BLACK;
-        url += "/${userInfo.id}";
+//        String url = Api.QUERY_BLACK;
+//        url += "/${userInfo.id}";
 //        NetUtils.get(url).then((data) {
 //          if (data != null) {
 //            var obj = json.decode(data);

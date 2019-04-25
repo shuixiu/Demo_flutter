@@ -34,6 +34,8 @@ dependencies:
   connectivity: ^0.4.2
   device_info: ^0.4.0+1
   uuid: ^2.0.0
+  package_info: ^0.4.0+3
+  transparent_image: ^0.1.0
 #  flutter_spinkit: ^3.1.0
 #  path_provider: ^0.5.0+1
 #  rxdart: ^0.21.0
@@ -97,6 +99,12 @@ flutter:
   - images/leftmenu/ic_settings.png
   - images/ic_osc_logo.png
   - images/ic_add_pics.png
+  - images/food01.jpeg
+  - images/food02.jpeg
+  - images/food03.jpeg
+  - images/food04.jpeg
+  - images/food05.jpeg
+  - images/food06.jpeg
 
 
   - images/start_logo.png

@@ -3,21 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/constants/Constants.dart';
 import 'package:flutter_demo/events/ChangeThemeEvent.dart';
 import 'package:flutter_demo/pages/DiscoveryPage.dart';
+import 'package:flutter_demo/pages/HomeDemoDart.dart';
 import 'package:flutter_demo/pages/MyInfoPage.dart';
-import 'package:flutter_demo/pages/NewsListPage.dart';
+import 'package:flutter_demo/pages/NewsHomeListPage.dart';
 import 'package:flutter_demo/pages/TweetsListPage.dart';
 import 'package:flutter_demo/util/DataUtils.dart';
 import 'package:flutter_demo/util/ThemeUtils.dart';
 import 'package:flutter_demo/widgets/MyDrawer.dart';
 
-class MyXiuClient extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => new MyXiuClientState();
+  State<StatefulWidget> createState() => new HomeClientState();
 }
 
-class MyXiuClientState extends State<MyXiuClient> {
-  final appBarTitles = ['资讯', '动弹', '发现', '我的'];
-  final tabTextStyleSelected = new TextStyle(color: const Color(0xff63ca6c));
+class HomeClientState extends State<HomePage> {
+  final appBarTitles = ['首页', '推荐', '现货', '我的'];
+  final tabTextStyleSelected = new TextStyle(color: const Color(0xFF0083ff));
   final tabTextStyleNormal = new TextStyle(color: const Color(0xff969696));
 
   Color themeColor = ThemeUtils.currentColorTheme;
@@ -48,7 +49,8 @@ class MyXiuClientState extends State<MyXiuClient> {
       });
     });
     pages = <Widget>[
-      new NewsListPage(),
+      new CustomScrollViewDemo(),
+//      new NewsHomeListPage(),
       new TweetsListPage(),
       new DiscoveryPage(),
       new MyInfoPage()
@@ -100,12 +102,12 @@ class MyXiuClientState extends State<MyXiuClient> {
       index: _tabIndex,
     );
     return new MaterialApp(
-      theme: new ThemeData(primaryColor: themeColor),
+//      theme: new ThemeData(primaryColor: themeColor),
       home: new Scaffold(
-          appBar: new AppBar(
-              title: new Text(appBarTitles[_tabIndex],
-                  style: new TextStyle(color: Colors.white)),
-              iconTheme: new IconThemeData(color: Colors.white)),
+//          appBar: new AppBar(
+//              title: new Text(appBarTitles[_tabIndex],
+//                  style: new TextStyle(color: Colors.white)),
+//              iconTheme: new IconThemeData(color: Colors.white)),
           body: _body,
           bottomNavigationBar: new CupertinoTabBar(
             items: <BottomNavigationBarItem>[
@@ -125,7 +127,8 @@ class MyXiuClientState extends State<MyXiuClient> {
               });
             },
           ),
-          drawer: new MyDrawer()),
+//          drawer: new MyDrawer()
+      ),
     );
   }
 

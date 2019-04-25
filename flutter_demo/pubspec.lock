@@ -319,6 +319,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.5"
+  package_info:
+    dependency: "direct main"
+    description:
+      name: package_info
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.4.0+3"
   package_resolver:
     dependency: transitive
     description:
@@ -457,6 +464,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.1.1+1"
+  transparent_image:
+    dependency: "direct main"
+    description:
+      name: transparent_image
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.1.0"
   typed_data:
     dependency: transitive
     description:
